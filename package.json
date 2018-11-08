@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/aneeshv12/Language-Translator#readme",
   "dependencies": {
+    "dotenv": "^6.1.0",
     "request": "^2.88.0",
     "underscore": "^1.9.1",
     "watson-developer-cloud": "^3.13.0"
