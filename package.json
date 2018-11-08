@@ -1,0 +1,24 @@
+{
+  "name": "language-translator",
+  "version": "1.0.0",
+  "description": "Implementation of a language translator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aneeshv12/Language-Translator.git"
+  },
+  "author": "Aneesh Venuturumilli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aneeshv12/Language-Translator/issues"
+  },
+  "homepage": "https://github.com/aneeshv12/Language-Translator#readme",
+  "dependencies": {
+    "request": "^2.88.0",
+    "underscore": "^1.9.1",
+    "watson-developer-cloud": "^3.13.0"
+  }
+}
