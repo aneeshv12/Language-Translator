@@ -6,3 +6,5 @@ After cloning the repository, please follow the steps below to run the applicati
 
 1. Download Node and NPM
 2. Run 'npm install'
+3. Add necessary API keys to .env_sample page
+4. Rename .env_sample to .env
