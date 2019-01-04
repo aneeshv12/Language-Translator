@@ -1,16 +1,18 @@
 require('dotenv').config();
+
 const express = require('express')
 const app = express()
-
-
-app.set('view engine', 'ejs')
-
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
-
 // Authentication of speech to text  object
 var SpeechToTextV1 = require('watson-developer-cloud/speech-to-text/v1');
+
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
+
+
+app.get('/', function (req, res) {
+  res.render('index')
+})
 
 var speechToText = new SpeechToTextV1({
     iam_apikey: process.env.SPEECH_TO_TEXT_KEY,
@@ -19,5 +21,6 @@ var speechToText = new SpeechToTextV1({
 
   app.listen(3000, function () {
     console.log(process.env.PORT)
-    console.log('Example app listening on port 3000!')
+    console.log('Node app is running at localhost:' + 3000);
+
   })
