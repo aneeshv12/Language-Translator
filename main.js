@@ -1,5 +1,7 @@
 function callTest() {
-  const myReq = JSON.stringify({ "text": "heyyy" });
+  const div = document.getElementById("serverResponse");
+  const text = div.innerHTML;
+  const myReq = JSON.stringify({ "text": text });
   // NOTE: Fetch does not currently work on IE! We will need a polyfill (i think that's what it is called) to be compatible.
   fetch('http://localhost:3000/', { 
     method: "POST", body: myReq, headers: { "Content-Type": "application/json" }
@@ -8,8 +10,7 @@ function callTest() {
     return response.json();
   })
   .then(function(myJson) {
-    const div = document.getElementById("serverResponse");
-    div.innerHTML = JSON.stringify(myJson.text);
+    div.innerHTML = myJson.text;
   });
 }
 
