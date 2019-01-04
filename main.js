@@ -7,12 +7,27 @@ function callTest() {
     method: "POST", body: myReq, headers: { "Content-Type": "application/json" }
   })
   .then(function(response) {
-    console.log(response);
     return response.json();
   })
   .then(function(myJson) {
     div.innerHTML = myJson.text;
   });
+}
+function handleSubmit(e){
+  e.preventDefault();
+  const text = document.translate.textvalue.value;
+  const answertext = document.getElementById('translateResponse');
+  const answer = answertext.innerHTML;
+  const myReq = JSON.stringify({"name": text, "value":answer});
+
+  fetch('http://localhost:3000/', { 
+    method: "POST", body: myReq, headers: { "Content-Type": "application/json" }
+  }).then(function(response){
+    return response.json();
+  }).then(function(myJson){
+    console.log(answer);
+    answertext.innerHTML = myJson.value;
+  })
 }
 
 const audioSelect = document.querySelector('select#audioSource');
