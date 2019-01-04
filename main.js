@@ -1,5 +1,19 @@
-const audioSelect = document.querySelector('select#audioSource');
+function callTest() {
+  const myReq = JSON.stringify({ "text": "heyyy" });
+  // NOTE: Fetch does not currently work on IE! We will need a polyfill (i think that's what it is called) to be compatible.
+  fetch('http://localhost:3000/', { 
+    method: "POST", body: myReq, headers: { "Content-Type": "application/json" }
+  })
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    const div = document.getElementById("serverResponse");
+    div.innerHTML = JSON.stringify(myJson.text);
+  });
+}
 
+const audioSelect = document.querySelector('select#audioSource');
 
 function hasGetUserMedia() {
     return !!(navigator.mediaDevices &&
