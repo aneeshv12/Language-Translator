@@ -6,10 +6,11 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json()); 
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const { doSomeStuff } = require('./services/first');
 
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
 
 app.listen(3000, function () {
   console.log(process.env.PORT);
@@ -22,5 +23,6 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
   const newText = doSomeStuff(req.body.text);
+  console.log(req.body.translate)
   res.send({ text: newText });
 });

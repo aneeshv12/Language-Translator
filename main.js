@@ -7,6 +7,7 @@ function callTest() {
     method: "POST", body: myReq, headers: { "Content-Type": "application/json" }
   })
   .then(function(response) {
+    console.log(response);
     return response.json();
   })
   .then(function(myJson) {
