@@ -6,10 +6,12 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json()); 
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const { doSomeStuff } = require('./services/first');
+const { translate }= require('./services/watson');
 
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
 
 app.listen(3000, function () {
   console.log(process.env.PORT);
@@ -21,6 +23,12 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function (req, res) {
-  const newText = doSomeStuff(req.body.text);
-  res.send({ text: newText });
+  //const newText = doSomeStuff(req.body.text);
+  // console.log(req.body.text)
+  // res.send({ text: req.body.text });
+  translate(req.body.name,function(response){
+    var data = response.translations[0].translation;
+    console.log(data);
+    res.send({ value: data});
+  });
 });
