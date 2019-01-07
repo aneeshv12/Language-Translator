@@ -13,6 +13,9 @@
     "url": "git+https://github.com/aneeshv12/Language-Translator.git"
   },
   "author": "Aneesh Venuturumilli",
+  "contributors": [
+    "Kelsey Huse"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aneeshv12/Language-Translator/issues"
