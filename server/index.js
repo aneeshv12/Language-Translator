@@ -22,13 +22,14 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-app.post('/', function (req, res) {
-  //const newText = doSomeStuff(req.body.text);
-  // console.log(req.body.text)
-  // res.send({ text: req.body.text });
-  translate(req.body.name,function(response){
-    var data = response.translations[0].translation;
-    console.log(data);
-    res.send({ value: data});
-  });
+app.post('/translate', function (req, res) {
+  translate(req.body.name)
+    .then(function(response) {
+      const data = response.translations[0].translation;
+      console.log(data);
+      res.send({ value: data });
+    })
+    .catch(function(error) {
+      console.log(`oops, error in translate: ${error}`);
+    });
 });
