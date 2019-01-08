@@ -26,7 +26,6 @@ function translate(input,callback){
       if (error)
         console.log(error)
       else
-        var answer = JSON.stringify(response, null, 2);
         return callback(response);
     }
   );
