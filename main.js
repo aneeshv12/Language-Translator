@@ -20,7 +20,7 @@ function handleSubmit(e){
   const answer = answertext.innerHTML;
   const myReq = JSON.stringify({"name": text, "value":answer});
 
-  fetch('http://localhost:3000/', { 
+  fetch('http://localhost:3000/translate', { 
     method: "POST", body: myReq, headers: { "Content-Type": "application/json" }
   }).then(function(response){
     return response.json();
