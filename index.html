@@ -10,6 +10,18 @@
         <select id="audioSource"></select>
         <button id="testButton" onclick="callTest()">Click me to make a request!</button>
         <div id="serverResponse">Heyyy</div>
+        <select lang="en" onchange="loadJS(this.value)">
+            <option selected="selected" disabled="true"> Select a keyboard language</option>
+            <option value="da">Danish</option>
+            <option value="de">German</option>
+            <option value="el">Greek</option>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="hi">Hindi</option>
+            <option value="it">Italian</option>
+            <option value="ko">Korean</option>
+        </select>
         <fieldset>
             <form name='translate' action="#">
                 <div>
